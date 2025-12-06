@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,10 +11,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Contests", href: "/contests" },
-    { name: "Talents", href: "/talents" },
-    { name: "About", href: "/about" },
-    { name: "More", href: "/more" },
+    { name: "Contests", href: "#contests" },
+    { name: "Talents", href: "#talents" },
+    { name: "About", href: "#about" },
+    { name: "More", href: "#more" },
   ];
 
   return (
@@ -29,44 +28,44 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
+        <a href="#" className="flex items-center gap-2">
           <img
             src="/assets/home/logo.png"   // ✅ CORRECT PATH
             alt="Admere Logo"
             className="h-10 w-auto object-contain"
           />
           <span className="text-2xl font-semibold text-gray-900">Admiree</span>
-        </Link>
+        </a>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.name}
-              to={link.href}
+              href={link.href}
               className="text-gray-700 hover:text-orange-500 font-medium transition-colors relative group"
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full" />
-            </Link>
+            </a>
           ))}
         </div>
 
         {/* Desktop Buttons */}
         <div className="hidden md:flex items-center gap-4">
-          <Link
-            to="/login"
+          <a
+            href="#login"
             className="px-4 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 transition"
           >
             Login
-          </Link>
+          </a>
 
-          <Link
-            to="/create-contest"
+          <a
+            href="#create-contest"
             className="px-5 py-2 rounded-full bg-gradient-to-r from-orange-400 to-orange-600 text-white shadow-md hover:opacity-90 transition"
           >
             Create Contest
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -96,30 +95,30 @@ const Navbar = () => {
         <div className="md:hidden bg-white shadow-md border-t mt-2 px-4 py-4 animate-fade-in">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.name}
-                to={link.href}
+                href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-gray-700 font-medium py-2 border-b"
               >
                 {link.name}
-              </Link>
+              </a>
             ))}
 
             <div className="flex flex-col gap-3 pt-4">
-              <Link
-                to="/login"
+              <a
+                href="#login"
                 className="px-4 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 transition text-center"
               >
                 Login
-              </Link>
+              </a>
 
-              <Link
-                to="/create-contest"
+              <a
+                href="#create-contest"
                 className="px-5 py-2 rounded-full bg-gradient-to-r from-orange-400 to-orange-600 text-white shadow-md hover:opacity-90 transition text-center"
               >
                 Create Contest
-              </Link>
+              </a>
             </div>
           </div>
         </div>

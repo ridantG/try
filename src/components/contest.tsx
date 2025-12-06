@@ -1,7 +1,4 @@
-"use client";
-
 import { useState, useEffect } from "react";
-import Image from "next/image";
 
 const contests = [
   {
@@ -138,12 +135,10 @@ const ContestsSection = () => {
 
                   {/* Image */}
                   <div className="relative h-48 overflow-hidden">
-                    <Image
+                    <img
                       src={contest.image}
                       alt={contest.title}
-                      fill
-                      sizes="100vw"
-                      className="object-cover group-hover:scale-110 transition duration-500"
+                      className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
                     />
 
                     <div
